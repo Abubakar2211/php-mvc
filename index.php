@@ -2,16 +2,13 @@
 
 
 require "function.php";
-// dd($_SERVER["REQUEST_URI"]);
+
+$routes = require "routes.php";
+
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-// dd($uri);
-if ($uri == "/") {
-    require 'form.php';
-    exit;
-} elseif ($uri == '/login') {
-    require "login.php";
+if (array_key_exists($uri, $routes)) {
+    require $routes[$uri];
 } else {
     abort();
 }
-
