@@ -15,49 +15,31 @@
         </div>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/">
                     <i class="icon-box menu-icon"></i>
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/user">
+                    <i class="fa-solid fa-users mr-3"></i>
+                    <span class="menu-title">User</span>
+                </a>
+            </li>
+
+            <!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                     aria-controls="ui-basic">
                     <i class="icon-disc menu-icon"></i>
-                    <span class="menu-title">UI Elements</span>
+                    <span class="menu-title">User</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="buttons.html">Buttons</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="typography.html">Typography</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/user">Buttons</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/user/create">Buttons</a></li>
                     </ul>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="basic_elements.html">
-                    <i class="icon-file menu-icon"></i>
-                    <span class="menu-title">Form elements</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="chartjs.html">
-                    <i class="icon-pie-graph menu-icon"></i>
-                    <span class="menu-title">Charts</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="basic-table.html">
-                    <i class="icon-command menu-icon"></i>
-                    <span class="menu-title">Tables</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="docs/documentation.html">
-                    <i class="icon-book menu-icon"></i>
-                    <span class="menu-title">Documentation</span>
-                </a>
-            </li>
+            </li> -->
         </ul>
     </nav>

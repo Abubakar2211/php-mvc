@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <!-- Font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -30,7 +34,7 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg"
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -51,9 +55,6 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item dropdown d-lg-flex d-none">
-                        <button type="button" class="btn btn-info font-weight-bold">+ Create New</button>
-                    </li>
                     <li class="nav-item dropdown d-flex">
                         <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                             id="messageDropdown" href="#" data-toggle="dropdown">
@@ -115,11 +116,6 @@
                                 <i class="icon-inbox"></i> Logout
                             </a>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown mr-4 d-lg-flex d-none">
-                        <a class="nav-link count-indicatord-flex align-item s-center justify-content-center" href="#">
-                            <i class="icon-grid"></i>
-                        </a>
                     </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"

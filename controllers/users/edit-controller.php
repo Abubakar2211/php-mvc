@@ -1,3 +1,3 @@
 <?php
 
-view('user/create-view');
+view('user/edit-view');
