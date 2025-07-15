@@ -34,18 +34,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            Abubakar baig
-                                        </td>
-                                        <td>
-                                            Abubakar@gmail.com
-                                        </td>
-                                        <td>
-                                            <a href="/user-edit" class="btn btn-success">Edit</a>
-                                            <a href="/user-delete" class="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($users as $user): ?>
+                                        <tr>
+                                            <td>
+                                                <?= $user['name'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $user['email'] ?>
+                                            </td>
+                                            <td>
+                                                <a href="/user-edit" class="btn btn-success">Edit</a>
+                                                <a href="/user-delete" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
