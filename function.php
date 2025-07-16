@@ -14,6 +14,7 @@ function abort($code = 404)
     die;
 }
 
+
 function view(string $path, array $params = [])
 {
     $file = "views/{$path}.php";

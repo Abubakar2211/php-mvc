@@ -14,10 +14,16 @@
                                     This is my users table table.This table show me my all users.
                                 </p>
                             </div>
+
                             <div>
                                 <a href="/user-create" class="btn btn-primary">Create User</a>
                             </div>
                         </div>
+                        <?php
+                        if (!empty($success)) {
+                            echo "User Created Successfully";
+                        }
+                        ?>
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
