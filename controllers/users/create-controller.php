@@ -1,6 +1,7 @@
 <?php
 
 require "Validator.php";
+require "Database.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -12,14 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     ];
     $rules = [
         'name' => ['required' => true, 'min' => 4, 'max' => 15],
-        'email' => ['required' => true, 'min' => 4, 'max' => 15 , 'email' => true],
+        'email' => ['required' => true, 'min' => 4, 'max' => 15, 'email' => true],
         'password' => ['required' => true, 'min' => 4, 'max' => 15],
         'password_confirmation' => ['required' => true, 'min' => 4, 'max' => 15],
     ];
 
     $errors = Validator::validate($data, $rules);
 
-    dd($errors);
 
     if (!isset($errors['password']) && !isset($errors['password_confirmation']) && $data['password'] != $data['password_confirmation']) {
         $errors['password'] = "Password confirmation does not match";
@@ -28,11 +28,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($errors)) {
         view('user/create-view', ['errors' => $errors]);
     }
-    header("Location:/user", ['message' => 'User Created Success']);
+
+    
+
+
+    $db = new Database;
+    $db->query("");
+
+    $db->query("INSERT INTO users(name,email,password) VALUES (:name , :email,:password)", [
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => $data['password']
+    ]);
+
+    header("Location:/user");
+    exit;
 } else {
     view('user/create-view');
 }
-function minAndMax(string $value, int $min, int $max)
-{
-    return strlen($value) > $min && strlen($value) < $max;
-}
+
