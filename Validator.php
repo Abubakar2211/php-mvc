@@ -16,19 +16,6 @@ class Validator
         return strlen($value) > $max;
     }
 
-    //  $data = [
-    //     'name' => strip_tags(trim($_POST['name'])),
-    //     'email' => strip_tags(trim($_POST['email'])),
-    //     'password' => strip_tags(trim($_POST['password'])),
-    //     'password_confirmation' => strip_tags(trim($_POST['password_confirmation']))
-    // ];
-
-
-
-    // $errors = Validator::validate($data, [
-    //     'name' => ['required' => true, 'min' => 3, 'max' => 8]
-    // ]);
-
     static function validate(array $data, array $rules)
     {
         $errors = [];
@@ -43,8 +30,12 @@ class Validator
                 $errors[$feild] = ucfirst($feild) . " length most be less than " . $constrains['min'];
                 continue;
             }
-            if (isset($constrains['max']) && $constrains['max'] && self::required($value, $constrains['max'])) {
-                $errors[$feild] = ucfirst($feild) . " length most be greate than" . $constrains['max'];
+            if (isset($constrains['max']) && $constrains['max'] && self::max($value, $constrains['max'])) {
+                $errors[$feild] = ucfirst($feild) . " length most be greate than " . $constrains['max'];
+                continue;
+            }
+            if (isset($constrains['email']) && $constrains['email'] && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = "Email must be a valid email address.";
                 continue;
             }
         }
