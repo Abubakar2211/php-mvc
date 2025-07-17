@@ -1,11 +1,15 @@
 <?php
 
-function dd($value)
+function dd(...$params)
 {
-    echo "<pre>";
-    var_dump($value);
-    echo "</pre>";
-    die;
+    foreach ($params as $key => $param) {
+        var_dump($key);
+        echo "<pre>";
+        var_dump($param);
+        echo "</pre>";
+    }
+
+    exit;
 }
 
 function abort($code = 404)

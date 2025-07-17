@@ -10,8 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         'password' => strip_tags(trim($_POST['password'])),
         'password_confirmation' => strip_tags(trim($_POST['password_confirmation']))
     ];
+    $rules = [
+        'name' => ['required' => true , 'min' => 4]
+    ];
 
-    $errors = [];
+    $errors = Validator::validate($data, $rules);
+
+    dd($errors);
 
     if (!isset($errors['password']) && !isset($errors['password_confirmation']) && $data['password'] != $data['password_confirmation']) {
         $errors['password'] = "Password confirmation does not match";
