@@ -13,54 +13,43 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $errors = [];
 
-    if (Validator::required($data['name'])) {
-        $errors['name'] = "Name is required";
-    }
-
-    if (Validator::min($data['name'], 3)) {
-        $errors['name'] = "Name can not be less then 3 character";
-    }
-    if (Validator::max($data['name'],30)) {
-        $errors['name'] = "Name can not be greater then 30
-         character";
-    dd($errors);
-    if (Validator::required($data['email'])) {
-        $errors['email'] = "Email is required";
-    }
-
-    if (Validator::required($data['password'])) {
-        $errors['password'] = "Password is required";
-    }
-
-    if (Validator::required($data['password_confirmation'])) {
-        $errors['name'] = "Password_confirmation is required";
-    }
     if (!isset($errors['password']) && !isset($errors['password_confirmation']) && $data['password'] != $data['password_confirmation']) {
         $errors['password'] = "Password confirmation does not match";
     }
 
-
-    if (!empty($data['name'])) {
-        if (!minAndMax($data['name'], 4, 255)) {
-            $errors['name'] = "Name must be between 3 to 255 character";
-        }
+    // Name
+    if (Validator::required($data['name'])) {
+        $errors['name'] = "Name is required";
+    } else if (Validator::min($data['name'], 4)) {
+        $errors['name'] = "Name length less than 4";
+    } else if (Validator::max($data['name'], 15)) {
+        $errors['name'] = "Name length Greater than 15";
     }
-    if (!empty($data['email'])) {
-        if (!minAndMax($data['email'], 4, 255)) {
-            $errors['email'] = "Email must be between 3 to 255 character";
-        }
+    // Email
+    if (Validator::required($data['email'])) {
+        $errors['email'] = "Email is required";
+    } else if (Validator::min($data['email'], 4)) {
+        $errors['email'] = "Email length less than 4";
+    } else if (Validator::max($data['email'], 15)) {
+        $errors['email'] = "Email length Greater than 15";
     }
-    if (!empty($data['password'])) {
-        if (!minAndMax($data['password'], 4, 255)) {
-            $errors['password'] = "Password must be between 3 to 255 character";
-        }
+    // Password
+    if (Validator::required($data['password'])) {
+        $errors['password'] = "Password is required";
+    } else if (Validator::min($data['password'], 4)) {
+        $errors['password'] = "Password length less than 4";
+    } else if (Validator::max($data['password'], 15)) {
+        $errors['password'] = "Password length Greater than 15";
     }
-    if (!empty($data['password_confirmation'])) {
-        if (!minAndMax($data['password_confirmation'], 4, 255)) {
-            $errors['password_confirmation'] = "Password Confirmation must be between 3 to 255 character";
-        }
+    // Password Confirmation
+    if (Validator::required($data['password_confirmation'])) {
+        $errors['password_confirmation'] = "Password Confirmation is required";
+    } else if (Validator::min($data['password_confirmation'], 4)) {
+        $errors['password_confirmation'] = "Password Confirmation length less than 4";
+    } else if (Validator::max($data['password_confirmation'], 15)) {
+        $errors['password_confirmation'] = "Password Confirmation length Greater than 15";
     }
-
+    dd($errors);
 
     if (!empty($errors)) {
         view('user/create-view', ['errors' => $errors]);
@@ -69,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 } else {
     view('user/create-view');
 }
-
 function minAndMax(string $value, int $min, int $max)
 {
     return strlen($value) > $min && strlen($value) < $max;
