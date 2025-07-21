@@ -1,5 +1,8 @@
 <?php
 
+require "Route.php";
+
+Route::get('/post/create', 'controller','index');
 
 return [
     '/' => 'controllers/index-controller.php',

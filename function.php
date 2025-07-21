@@ -8,7 +8,7 @@ function dd(...$params)
         var_dump($param);
         echo "</pre>";
     }
-
+    
     exit;
 }
 

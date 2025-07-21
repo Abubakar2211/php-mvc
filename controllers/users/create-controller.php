@@ -29,9 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         view('user/create-view', ['errors' => $errors]);
     }
 
-    
-
-
     $db = new Database;
     $db->query("");
 
