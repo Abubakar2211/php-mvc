@@ -1,14 +1,10 @@
 <?php
 
-
 require "function.php";
+require "Route.php";
 
-$routes = require "routes.php";
-
+$router = new Route;
+require "routes.php";
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
-
-if (array_key_exists($uri, $routes)) {
-    require $routes[$uri];
-} else {
-    abort();
-}
+$method = $_SERVER['REQUEST_METHOD'];
+$router->router($uri, $method);
