@@ -3,6 +3,7 @@
 class Database
 {
     public $connection;
+    public $statment;
     public function __construct()
     {
         $dsn = "mysql:host=localhost;port=3306;dbname=php_mvc;";
@@ -14,9 +15,27 @@ class Database
     public function query($query, $params = [])
     {
 
-        $statment = $this->connection->prepare($query);
-        $statment->execute($params);
-        return $statment;
+        $this->statment = $this->connection->prepare($query);
+        $this->statment->execute($params);
+        return $this;
+    }
+
+    public function find()
+    {
+        return $this->statment->fetch();
+    }
+    public function findOrFail()
+    {
+        $result = $this->statment->fetch();
+        if (!$result) {
+            abort();
+        }
+        return $result;
+    }
+
+    public function all()
+    {
+        return $this->statment->fetchAll();
     }
 }
 

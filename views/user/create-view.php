@@ -11,7 +11,7 @@
                         <p class="card-description">
                             User Create Form
                         </p>
-                        <form class="forms-sample" method="POST">
+                        <form action="user-store" class="forms-sample" method="POST">
                             <div class="form-group">
                                 <label for="exampleInputName1">Name</label>
                                 <input type="text" name="name" value="<?= $_POST['name'] ?? '' ?>" class="form-control"
@@ -20,7 +20,8 @@
                             <p class="text-danger"><?= $errors['name'] ?? '' ?></p>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Email address</label>
-                                <input type="email" name="email" value="<?= $_POST['email'] ?? '' ?>"  class="form-control" id="exampleInputEmail3" placeholder="Email">
+                                <input type="email" name="email" value="<?= $_POST['email'] ?? '' ?>"
+                                    class="form-control" id="exampleInputEmail3" placeholder="Email">
                             </div>
                             <p class="text-danger"><?= $errors['email'] ?? '' ?></p>
 

@@ -7,6 +7,7 @@ class Route
     {
         foreach ($this->routes as $route) {
             if ($route['url'] === $url && $route['method'] === $method){
+                
                 require $route['controller'];
                 return;
             }

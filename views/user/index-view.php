@@ -48,9 +48,13 @@
                                             <td>
                                                 <?= $user['email'] ?>
                                             </td>
-                                            <td>
-                                                <a href="/user-edit" class="btn btn-success">Edit</a>
-                                                <a href="/user-delete" class="btn btn-danger">Delete</a>
+                                            <td class="d-flex">
+                                                <a href="/user-edit?id=<?= $user['id'] ?>" class="btn btn-success mx-2">Edit</a>
+                                                <form action="/user-delete" method="POST">
+                                                    <input type="hidden" value="DELETE" name="__method" id="">
+                                                    <input type="hidden" value="<?= $user['id'] ?>" name="id">
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>
